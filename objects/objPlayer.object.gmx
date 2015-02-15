@@ -3,7 +3,7 @@
   <spriteName>sprPlayer</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-300</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,15 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd = 10;
-grav = 0.5;
-jump = 15;
-jumping = false; //boolean to check for player in state of jumping
-shiftUp = false; //"animation" variable for the jump
-
-baseY = room_height/2;
-jumpOffset = 64;
-
+            <string>image_xscale = 5;
+image_yscale = 5;
 </string>
           </argument>
         </arguments>
@@ -56,60 +49,13 @@ jumpOffset = 64;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x += device_get_tilt_y()*spd;
-//y += device_get_tilt_x()*spd;
-
-if keyboard_check(ord('A')){
-    x-=5;
-}
-if keyboard_check(ord('D')){
-    x+=5;
-}
-
-if(x&lt;=sprite_width/2){
-    x = sprite_width/2;
-}
-if(x&gt;=room_width-sprite_width/2){
-    x = room_width-sprite_width/2;
-}
-//Fire bullet
-if(mouse_check_button_pressed(mb_left)){
-    var bullet = instance_create(x,y,objBullet);
-    bullet.direction = point_direction(x,y,mouse_x,mouse_y);
-    bullet.speed = 10;
-}
-//Shake for jump
-if(y == room_height/2){
-    if (abs(device_get_tilt_x()) &gt; 1.5 || abs(device_get_tilt_y())&gt;1.5 || abs(device_get_tilt_z())&gt;1.5) {
-        vspeed =-jump;
-        jumping = true;
-    }
-}
-
-if(!shiftUp){
-    if(y &lt; baseY){
-        gravity = 1; //change this for more "gravity" in drop
-    }else if(y&gt;baseY+jumpOffset){
-        shiftUp = true;   
-    }
-}else{
-    gravity = 0;
-    vspeed = 0;
-    jumping = false;
-    if(y&gt;baseY){
-        y-=5; //change this for different jump "reset" speed
-    }else{
-        y = baseY;
-        shiftUp = false;
-    }
-    
-}
+            <string>score+=1;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objGround">
+    <event eventtype="5" enumb="39">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -126,14 +72,15 @@ if(!shiftUp){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_contact_solid(direction,4);
-vspeed = 0;
+            <string>if(x&lt;room_width-230){
+    x+=2;
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="5" enumb="37">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -150,32 +97,9 @@ vspeed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-//draw_text(x,y,string(gravity));
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>vspeed =-jump;
-
+            <string>if(x&gt;230){
+    x-=2;
+}
 </string>
           </argument>
         </arguments>
@@ -194,7 +118,7 @@ vspeed = 0;
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>16,16</point>
+    <point>17,27</point>
     <point>16,16</point>
   </PhysicsShapePoints>
 </object>
