@@ -7,7 +7,6 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sprTree</sprite>
-    <sprite>sprites\sprite3</sprite>
     <sprite>sprites\sprPlayer</sprite>
   </sprites>
   <backgrounds name="background">
@@ -17,8 +16,12 @@
   <objects name="objects">
     <object>objects\objPlayer</object>
     <object>objects\objTree</object>
+    <object>objects\objEnemy</object>
     <object>objects\objController</object>
-    <object>objects\object3</object>
+    <object>objects\objNotjumpable</object>
+    <object>objects\objJumpable</object>
+    <object>objects\objProjectile</object>
+    <object>objects\objObstacle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMain</room>
