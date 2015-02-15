@@ -30,6 +30,10 @@ grav = 0.5;
 jump = 15;
 jumping = false; //boolean to check for player in state of jumping
 shiftUp = false; //"animation" variable for the jump
+
+baseY = room_height/2;
+jumpOffset = 64;
+
 </string>
           </argument>
         </arguments>
@@ -62,6 +66,12 @@ if keyboard_check(ord('D')){
     x+=5;
 }
 
+if(x&lt;=sprite_width/2){
+    x = sprite_width/2;
+}
+if(x&gt;=room_width-sprite_width/2){
+    x = room_width-sprite_width/2;
+}
 //Fire bullet
 if(mouse_check_button_pressed(mb_left)){
     var bullet = instance_create(x,y,objBullet);
@@ -77,19 +87,19 @@ if(y == room_height/2){
 }
 
 if(!shiftUp){
-    if(y &lt; room_height/2){
+    if(y &lt; baseY){
         gravity = 1; //change this for more "gravity" in drop
-    }else if(y&gt;room_height/2+64){
+    }else if(y&gt;baseY+jumpOffset){
         shiftUp = true;   
     }
 }else{
     gravity = 0;
     vspeed = 0;
     jumping = false;
-    if(y&gt;room_height/2){
+    if(y&gt;baseY){
         y-=5; //change this for different jump "reset" speed
     }else{
-        y = room_height/2;
+        y = baseY;
         shiftUp = false;
     }
     
