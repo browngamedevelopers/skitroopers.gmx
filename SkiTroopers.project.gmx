@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\sprTree</sprite>
     <sprite>sprites\sprPlayer</sprite>
+    <sprite>sprites\sprDevpBullet</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
@@ -20,6 +21,7 @@
     <object>objects\objController</object>
     <object>objects\objNotjumpable</object>
     <object>objects\objJumpable</object>
+    <object>objects\objPlayerBullet</object>
     <object>objects\objProjectile</object>
     <object>objects\objObstacle</object>
   </objects>
