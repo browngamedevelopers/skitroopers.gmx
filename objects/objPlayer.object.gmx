@@ -55,6 +55,12 @@ shiftUp = false; //"animation" variable for the jump
             <string>x += device_get_tilt_y()*spd;
 //y += device_get_tilt_x()*spd;
 
+if keyboard_check(ord('A')){
+    x-=5;
+}
+if keyboard_check(ord('D')){
+    x+=5;
+}
 
 //Fire bullet
 if(mouse_check_button_pressed(mb_left)){
