@@ -28,29 +28,10 @@
             <string>image_xscale = 5;
 image_yscale = 5;
 fired = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>fired = false;
+jump = 20;
+jumping = false;
+initialY = y;
+
 </string>
           </argument>
         </arguments>
@@ -74,10 +55,26 @@ fired = false;
           <argument>
             <kind>1</kind>
             <string>score+=1;
+
 if (mouse_check_button(mb_left) &amp;&amp; !fired) {
     instance_create(x,y,objPlayerBullet);
     fired = true;
     alarm[0] = 30;
+
+
+
+if (abs(device_get_tilt_x()) &gt; 1.5 || abs(device_get_tilt_y())&gt;1.5 || abs(device_get_tilt_z())&gt;1.5) {
+    event_perform(ev_keypress,vk_space);
+}
+
+if(jumping){
+    if(y&gt;initialY){
+        y = initialY;
+        gravity = 0;
+        vspeed = 0;
+        jumping = false;
+    }
+
 }
 </string>
           </argument>
@@ -128,6 +125,61 @@ if (mouse_check_button(mb_left) &amp;&amp; !fired) {
             <kind>1</kind>
             <string>if(x&gt;230){
     x-=2;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var scale = 1-(y-initialY)/500;
+draw_set_alpha(0.5);
+draw_ellipse(x-20*scale,initialY-10*scale,x+20*scale,initialY+10*scale,false);
+draw_set_alpha(1);
+draw_self();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(!jumping){
+    vspeed =-jump;
+    jumping = true;
+    gravity = 1;
 }
 </string>
           </argument>

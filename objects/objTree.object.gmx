@@ -55,8 +55,8 @@
             <string>if(y&gt;room_height){
     instance_destroy();
 }
-image_xscale = (y-178)/100;
-image_yscale = (y-178)/100;
+image_xscale = (y-ystart)/100;
+image_yscale = (y-ystart)/100;
 depth = -y;
 </string>
           </argument>
