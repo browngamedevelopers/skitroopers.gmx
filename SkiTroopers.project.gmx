@@ -15,13 +15,19 @@
     <sprite>sprites\sprBunker</sprite>
     <sprite>sprites\sprExplosion</sprite>
     <sprite>sprites\sprMountains</sprite>
-
+    <sprite>sprites\sprSoldier</sprite>
+    <sprite>sprites\sprRamp</sprite>
+    <sprite>sprites\sprTree2</sprite>
+    <sprite>sprites\sprPlayerLeft</sprite>
+    <sprite>sprites\sprPlayerRight</sprite>
+    <sprite>sprites\sprPlayerCenter</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
     <background>background\bckSnow</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts"/>
   <objects name="objects">
     <object>objects\objController</object>
     <object>objects\objNotjumpable</object>

@@ -48,11 +48,6 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!fired &amp;&amp; y &gt;= global.shootHeight){
-    instance_create(x,y,objEnemyBullet);
-    fired = true;
-}
-</string>
             <string>scaleFactor = 1/100;
             </string>
           </argument>
