@@ -31,6 +31,8 @@ global.shootHeight = 400;
 
 global.roomSpeed = 1;
 global.playerY = 800;
+
+sound_play(sndHappyFast);
 </string>
           </argument>
         </arguments>

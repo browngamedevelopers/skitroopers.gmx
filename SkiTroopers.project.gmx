@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sndHappyFast</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprTree</sprite>
     <sprite>sprites\sprPlayer</sprite>
@@ -21,13 +23,19 @@
     <sprite>sprites\sprPlayerLeft</sprite>
     <sprite>sprites\sprPlayerRight</sprite>
     <sprite>sprites\sprPlayerCenter</sprite>
+    <sprite>sprites\sprite15</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
     <background>background\bckSnow</background>
   </backgrounds>
   <paths name="paths"/>
-  <scripts name="scripts"/>
+  <scripts name="scripts">
+    <script>scripts\script3.gml</script>
+    <script>scripts\gen_obj.gml</script>
+    <script>scripts\gen_tree_wall.gml</script>
+    <script>scripts\test_gen.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\objController</object>
     <object>objects\objNotjumpable</object>
@@ -41,6 +49,9 @@
     <object>objects\objScalable</object>
     <object>objects\objSoldier</object>
     <object>objects\objEnemyBullet</object>
+    <object>objects\objLog</object>
+    <object>objects\objBunker</object>
+    <object>objects\objExplosion</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMain</room>
