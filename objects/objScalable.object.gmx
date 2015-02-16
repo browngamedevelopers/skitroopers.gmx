@@ -28,9 +28,9 @@
             <string>{
   var xoff,yoff;
   xoff = x - (view_xview + view_wview/2);  // offset from the view center
-  yoff = y - ystart;                       // offset from start position
-  x += xoff * 0.015;                       // Play with these values
-  y += 0.2 + yoff * 0.02;
+  yoff = (y - ystart);                       // offset from start position
+  x += (xoff * 0.015)*global.roomSpeed;                       // Play with these values
+  y += (0.2 + yoff * 0.02)*global.roomSpeed;
 }
 </string>
           </argument>
@@ -55,8 +55,8 @@
             <string>if(y&gt;room_height){
     instance_destroy();
 }
-image_xscale = (y-178)/100;
-image_yscale = (y-178)/100;
+image_xscale = (y-ystart)/100;
+image_yscale = (y-ystart)/100;
 depth = -y;
 </string>
           </argument>
