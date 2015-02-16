@@ -14,6 +14,6 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>1920</width>
-  <height>324</height>
-  <data>images\bckMountains.png</data>
+  <height>1080</height>
+  <data>images\bckSnow.png</data>
 </background>

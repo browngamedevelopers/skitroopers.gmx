@@ -14,9 +14,11 @@
     <sprite>sprites\sprLog</sprite>
     <sprite>sprites\sprBunker</sprite>
     <sprite>sprites\sprExplosion</sprite>
+    <sprite>sprites\sprMountains</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
+    <background>background\bckSnow</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
