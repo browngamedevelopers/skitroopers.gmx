@@ -3,7 +3,7 @@
 var tree_bound, rw, y_gen;
 tree_bound = 1500
 rw = room_width-(tree_bound-900)
-y_gen = 270
+y_gen = global.horizonHeight
 
 repeat(10) {
     lr = irandom(1)
