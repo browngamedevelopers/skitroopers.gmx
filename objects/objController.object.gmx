@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>global.horizonHeight = 176;
+global.shootHeight = 400;
 global.roomSpeed = 1;
 global.playerY = 800;
 </string>

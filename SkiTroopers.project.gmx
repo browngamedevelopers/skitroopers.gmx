@@ -28,6 +28,7 @@
     <object>objects\objObstacle</object>
     <object>objects\objScalable</object>
     <object>objects\objSoldier</object>
+    <object>objects\objEnemyBullet</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMain</room>
