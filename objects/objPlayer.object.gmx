@@ -37,6 +37,29 @@ initialY = y;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fired = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -61,7 +84,7 @@ if (mouse_check_button(mb_left) &amp;&amp; !fired) {
     fired = true;
     alarm[0] = 30;
 
-
+}
 
 if (abs(device_get_tilt_x()) &gt; 1.5 || abs(device_get_tilt_y())&gt;1.5 || abs(device_get_tilt_z())&gt;1.5) {
     event_perform(ev_keypress,vk_space);
