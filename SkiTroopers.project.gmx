@@ -11,6 +11,8 @@
     <sprite>sprites\sprDevpBullet</sprite>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprBall</sprite>
+    <sprite>sprites\sprLog</sprite>
+    <sprite>sprites\sprBunker</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
@@ -28,6 +30,8 @@
     <object>objects\objObstacle</object>
     <object>objects\objScalable</object>
     <object>objects\objSoldier</object>
+    <object>objects\objLog</object>
+    <object>objects\objBunker</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMain</room>

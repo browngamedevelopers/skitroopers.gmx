@@ -53,7 +53,7 @@ global.playerY = 800;
             <string>///Change this tree creation algo
 repeat (1+score/400) {
     if (irandom(9) == 0) {
-        instance_create(view_xview[0]+random(view_wview[0]), global.horizonHeight, objSoldier)
+        instance_create(view_xview[0]+random(view_wview[0]), global.horizonHeight, objBunker)
     }
 }
 </string>

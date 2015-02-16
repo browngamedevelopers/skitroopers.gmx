@@ -66,7 +66,7 @@ if(y &lt; global.horizonHeight){
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objNotjumpable">
+    <event eventtype="4" ename="objEnemy">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,7 +89,7 @@ if(y &lt; global.horizonHeight){
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objEnemy">
+    <event eventtype="4" ename="objNotjumpable">
       <action>
         <libid>1</libid>
         <id>603</id>
