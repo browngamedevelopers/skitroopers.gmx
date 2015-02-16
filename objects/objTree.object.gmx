@@ -5,10 +5,10 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objScalable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,39 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>{
-  var xoff,yoff;
-  xoff = x - (view_xview + view_wview/2);  // offset from the view center
-  yoff = y - ystart;                       // offset from start position
-  x += xoff * 0.015;                       // Play with these values
-  y += 0.2 + yoff * 0.02;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(y&gt;room_height){
+            <string>if(x-100&lt;view_xview[0] || x+100&gt;view_xview[0]+view_wview[0]){
     instance_destroy();
 }
-image_xscale = (y-ystart)/100;
-image_yscale = (y-ystart)/100;
-depth = -y;
 </string>
           </argument>
         </arguments>

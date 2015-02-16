@@ -28,10 +28,11 @@
             <string>image_xscale = 5;
 image_yscale = 5;
 fired = false;
-jump = 20;
+jump = 40;
 jumping = false;
 initialY = y;
 
+depth = -y;
 </string>
           </argument>
         </arguments>
