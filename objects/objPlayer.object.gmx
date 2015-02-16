@@ -79,14 +79,21 @@ initialY = y;
             <kind>1</kind>
             <string>score+=1;
 
-if(x&gt;230){
-    x -= device_get_tilt_y()*5;
+//if(x&gt;230){
+    //x -= device_get_tilt_y()*15;
     //x-=2;
-}
-if(x&lt;room_width-230){
-    x += device_get_tilt_y()*5;
+//}
+if(x&gt;230 &amp;&amp; x&lt;room_width-230){
+    x += device_get_tilt_y()*15;
     //x+=2;
 }
+if(x&lt;=230){
+        x = 231;
+   }
+   if(x&gt;=room_width-230){
+        x = room_width-231;
+   }
+
 if (mouse_check_button(mb_left) &amp;&amp; !fired) {
     instance_create(x,y-sprite_width/2,objPlayerBullet);
     fired = true;
