@@ -9,6 +9,7 @@
     <sprite>sprites\sprTree</sprite>
     <sprite>sprites\sprPlayer</sprite>
     <sprite>sprites\sprEnemy</sprite>
+    <sprite>sprites\sprBall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>

@@ -28,7 +28,7 @@
             <string>///Change this tree creation algo
 repeat (1+score/400) {
     if (irandom(9) == 0) {
-        instance_create(view_xview[0]+random(view_wview[0]), 270, objTree)
+        instance_create(view_xview[0]+random(view_wview[0]), 270, objSoldier)
     }
 }
 </string>
