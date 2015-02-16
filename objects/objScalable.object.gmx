@@ -51,10 +51,19 @@
             <string>{
   var xoff,yoff;
   xoff = x - (view_xview + view_wview/2);  // offset from the view center
-  yoff = (y - ystart);                       // offset from start position
-  x += (xoff * 0.015)*global.roomSpeed;                       // Play with these values
-  y += (0.2 + yoff * 0.02)*global.roomSpeed;
+  yoff = y - ystart;                       // offset from start position
+  x += xoff * 0.015;                       // Play with these values
+  y += 0.2 + yoff * 0.02;
 }
+/*{
+  var xoff,yoff;
+  xoff = x - (view_xview + view_wview/2);  // offset from the view center
+  yoff = (y - ystart);                       // offset from start position
+  x += (xoff * 0.015)*(global.roomSpeed/room_speed);//(xoff * 0.015)*global.roomSpeed;                       // Play with these values
+  y += (0.4 + yoff * 0.04)*(global.roomSpeed/room_speed);//(0.2 + yoff * 0.02)*global.roomSpeed;
+
+}
+*/
 </string>
           </argument>
         </arguments>

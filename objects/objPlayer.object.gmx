@@ -25,14 +25,39 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = 0.15;
-image_yscale = 0.15;
+            <string>image_xscale = 0.1;
+image_yscale = 0.1;
 fired = false;
-jump = 30;
+jump = 20;
 jumping = false;
 initialY = y;
-
+maxBullets = 30;
+bulletCount = maxBullets;
 depth = -y;
+tmrRefillBullets  = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>bulletCount++;
 </string>
           </argument>
         </arguments>
@@ -127,10 +152,20 @@ sprite_index = sprPlayerCenter;
     }
 if (mouse_check_button(mb_left) &amp;&amp; !fired) {
     instance_create(x,y-sprite_width+20,objPlayerBullet);
-
+    bulletCount--;
     fired = true;
     alarm[0] = 10;
+    tmrRefillBullets = room_speed;
+}
 
+if(tmrRefillBullets &gt; 0){
+    tmrRefillBullets --;
+}else if(tmrRefillBullets == 0){
+    tmrRefillBullets = -1;
+    bulletCount ++;
+    if(bulletCount&lt;maxBullets){
+        tmrRefillBullets = room_speed;
+    }
 }
 
 if (abs(device_get_tilt_x()) &gt; 1.5 || abs(device_get_tilt_y())&gt;1.5 || abs(device_get_tilt_z())&gt;1.5) {
@@ -168,11 +203,11 @@ if(jumping){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!jumping){
+            <string>/*if(!jumping){
     alarm[1] = 100;
     global.roomSpeed = 0;
     fired = true;
-}
+}*/
 </string>
           </argument>
         </arguments>
@@ -247,7 +282,7 @@ if(jumping){
             <kind>1</kind>
             <string>var scale = 1-(y-initialY)/500;
 draw_set_alpha(0.5);
-draw_ellipse(x-50*scale,initialY-60-20*scale,x+50*scale,initialY-60+20*scale,false);
+draw_ellipse(x-50*scale,initialY-20*scale,x+50*scale,initialY+20*scale,false);
 draw_set_alpha(1);
 draw_self();
 

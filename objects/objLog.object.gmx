@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scaleFactor = 1/1600;
+            <string>scaleFactor = 1/2000;
 </string>
           </argument>
         </arguments>

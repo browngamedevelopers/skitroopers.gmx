@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objScalable</parentName>
+  <parentName>objNotjumpable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scaleFactor = 1/800;
+            <string>scaleFactor = 1/700;
 </string>
           </argument>
         </arguments>
@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(x-100&lt;view_xview[0] || x+100&gt;view_xview[0]+view_wview[0]){
+            <string>if(x&lt;view_xview[0]-100 || x&gt; view_xview[0]+view_wview[0]+100){
     instance_destroy();
 }
 </string>

@@ -25,8 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = 0.25;
-image_yscale = 0.25;
+            <string>
+image_xscale = (1-(room_height-y)/(room_height-global.horizonHeight))/2;
+image_yscale = (1-(room_height-y)/(room_height-global.horizonHeight))/2;
+
+depth = -y;
 </string>
           </argument>
         </arguments>
