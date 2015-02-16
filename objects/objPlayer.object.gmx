@@ -137,7 +137,7 @@ if(jumping){
           <argument>
             <kind>1</kind>
             <string>if(x&lt;room_width-230){
-    x+=2;
+    x+=10;
 }
 </string>
           </argument>
@@ -162,7 +162,7 @@ if(jumping){
           <argument>
             <kind>1</kind>
             <string>if(x&gt;230){
-    x-=2;
+    x-=10;
 }
 </string>
           </argument>
