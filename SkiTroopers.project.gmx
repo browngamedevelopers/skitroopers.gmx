@@ -18,6 +18,11 @@
     <background>background\bckMountains</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\gen_obj.gml</script>
+    <script>scripts\gen_tree_wall.gml</script>
+    <script>scripts\test_gen.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\objController</object>
     <object>objects\objNotjumpable</object>
