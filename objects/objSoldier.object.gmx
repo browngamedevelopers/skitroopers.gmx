@@ -52,8 +52,9 @@
     instance_create(x,y,objEnemyBullet);
     fired = true;
 }
-            <string>scaleFactor = 1/100;
 </string>
+            <string>scaleFactor = 1/100;
+            </string>
           </argument>
         </arguments>
       </action>
