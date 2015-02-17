@@ -32,7 +32,7 @@ global.shootHeight = 400;
 global.roomSpeed = room_speed;
 global.playerY = 800;
 
-sound_play(sndHappyFast);
+sound_loop(sndHappyFast);
 instance_create(room_width/2,room_height/2+300,objPlayer);
 </string>
           </argument>
@@ -74,6 +74,11 @@ repeat (1+score/400) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog)
     }
 }
+repeat (1+score/400) {
+    if (irandom(9) == 0) {
+        instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objRock)
+    }
+}
 repeat (1+score/1600) {
     if (irandom(9) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objSoldier)
@@ -85,7 +90,7 @@ repeat (1+score/2000) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objBunker)
     }
 }
-
+//effect_create_above(ef_snow, 0, 0, 0, c_white);
 </string>
           </argument>
         </arguments>

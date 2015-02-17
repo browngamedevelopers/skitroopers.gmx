@@ -26,6 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>scaleFactor = 1/700;
+
+if(irandom(1)){
+    sprite_index = sprTree;
+}else{
+    sprite_index = sprTree2;
+}
 </string>
           </argument>
         </arguments>

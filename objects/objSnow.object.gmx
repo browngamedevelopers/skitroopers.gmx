@@ -25,13 +25,43 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scaleFactor = 1/100;
+            <string>/*GAMECAVE EFFECTS ENGINE 3.X
+Read the GCE3X documentation before using this code!
+
+Object Name - objSnow
+Engine - Snow Engine
+Purpose - The master object for snow; sets paramaters and handles the particles.
+*/
+
+global.sky_type = 1; //Set this engines sky.
+
+//System(s)
+snow_system = part_system_create()
+part_system_depth(snow_system,5)
+
+//Particle(s)
+snow = part_type_create()
+part_type_alpha2(snow,1,0)
+part_type_color_mix(snow,c_white,c_ltgray)
+part_type_direction(snow,295,305,0,4)
+part_type_speed(snow,6,7,0,0)
+part_type_life(snow,300,400)
+part_type_shape(snow,pt_shape_disk)
+part_type_size(snow,0.05,0.1,0,0)
+
+//Emitter(s)
+emitter = part_emitter_create(snow_system)
+
+//Result(s)
+part_emitter_region(snow_system,emitter,-500,room_width+500,-30,-20,ps_shape_rectangle,ps_distr_linear); //Set the region
+part_emitter_stream(snow_system,emitter,snow,8); //Continually stream snow
+repeat(100) {part_system_update(snow_system);} //"Fast forward" the snow's movement so it's already falling steadily when first shown.
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,48 +78,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>{
-  var xoff,yoff;
-  xoff = x - (view_xview + view_wview/2);  // offset from the view center
-  yoff = y - ystart;                       // offset from start position
-  x += xoff * 0.015;                       // Play with these values
-  y += 0.2 + yoff * 0.02;
-}
-/*{
-  var xoff,yoff;
-  xoff = x - (view_xview + view_wview/2);  // offset from the view center
-  yoff = (y - ystart);                       // offset from start position
-  x += (xoff * 0.015)*(global.roomSpeed/room_speed);//(xoff * 0.015)*global.roomSpeed;                       // Play with these values
-  y += (0.4 + yoff * 0.04)*(global.roomSpeed/room_speed);//(0.2 + yoff * 0.02)*global.roomSpeed;
-
-}
-*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(y&gt;room_height+500){
-    instance_destroy();
-}
-image_xscale = (y-ystart) * scaleFactor;
-image_yscale = (y-ystart) * scaleFactor;
-depth = -y;
+            <string>part_system_destroy(snow_system) //Scrap the snow-system.
 </string>
           </argument>
         </arguments>

@@ -8,8 +8,6 @@
     <sound>sound\sndHappyFast</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\sprTree</sprite>
-    <sprite>sprites\sprPlayer</sprite>
     <sprite>sprites\sprDevpBullet</sprite>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprBall</sprite>
@@ -18,12 +16,23 @@
     <sprite>sprites\sprExplosion</sprite>
     <sprite>sprites\sprMountains</sprite>
     <sprite>sprites\sprSoldier</sprite>
+    <sprite>sprites\sprDeadSoldier</sprite>
+    <sprite>sprites\sprDyingSoldier</sprite>
     <sprite>sprites\sprRamp</sprite>
+    <sprite>sprites\sprTree</sprite>
     <sprite>sprites\sprTree2</sprite>
     <sprite>sprites\sprPlayerLeft</sprite>
     <sprite>sprites\sprPlayerRight</sprite>
     <sprite>sprites\sprPlayerCenter</sprite>
     <sprite>sprites\sprGrenade</sprite>
+    <sprite>sprites\sprLog2</sprite>
+    <sprite>sprites\sprLog4</sprite>
+    <sprite>sprites\sprLog3</sprite>
+    <sprite>sprites\sprRock</sprite>
+    <sprite>sprites\sprRock2</sprite>
+    <sprite>sprites\sprRock3</sprite>
+    <sprite>sprites\sprStatus</sprite>
+    <sprite>sprites\sprComplete</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
@@ -53,7 +62,8 @@
     <object>objects\objLog</object>
     <object>objects\objBunker</object>
     <object>objects\objExplosion</object>
-    <object>objects\objRamp</object>
+    <object>objects\objRock</object>
+    <object>objects\objSnow</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMain</room>

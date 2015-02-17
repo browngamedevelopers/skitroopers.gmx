@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> move_towards_point(mouse_x,global.horizonHeight,20);
+            <string> //move_towards_point(mouse_x,global.horizonHeight,20);
+ speed = 20;
  startspeed = 20;
 </string>
           </argument>

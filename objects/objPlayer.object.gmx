@@ -35,6 +35,9 @@ maxBullets = 30;
 bulletCount = maxBullets;
 depth = -y;
 tmrRefillBullets  = -1;
+jumpSpace = virtual_key_add(0,0,view_wview[0]/2,view_hview[0],vk_space);
+mousePressed = false;
+
 </string>
           </argument>
         </arguments>
@@ -110,6 +113,29 @@ fired = false;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_angle = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -128,13 +154,20 @@ fired = false;
           <argument>
             <kind>1</kind>
             <string>score+=1;
-
+//image_angle = 0;
 //if(x&gt;230){
     //x -= device_get_tilt_y()*15;
     //x-=2;
 //}
 if(x&gt;230 &amp;&amp; x&lt;room_width-230){
     x += device_get_tilt_y()*15;
+    
+    if(device_get_tilt_y()&lt;0){
+        image_angle = -10;
+    }
+    if(device_get_tilt_y()&gt;0){
+        image_angle = 10;
+    }
     //x+=2;
 }
 if(x&lt;=230){
@@ -150,12 +183,26 @@ sprite_index = sprPlayerCenter;
     if(mouse_x&gt;x+100){
         sprite_index = sprPlayerRight;
     }
+    
 if (mouse_check_button(mb_left) &amp;&amp; !fired) {
-    instance_create(x,y-sprite_width+20,objPlayerBullet);
+    if(!mousePressed){
+        touchX = mouse_x;
+        touchY = mouse_y;
+    }
+    mousePressed = true;
+    var bullet = instance_create(x,y-sprite_width+20,objPlayerBullet);
+    if(os_type == os_android || os_type == os_ios){
+        bullet.direction = 90 + (touchX-mouse_y)*0.15;
+    }else{
+        bullet.direction = 90 + (touchX-mouse_x)*0.15;
+    }
     bulletCount--;
     fired = true;
     alarm[0] = 10;
     tmrRefillBullets = room_speed;
+}
+if(mouse_check_button_released(mb_left)){
+    mousePressed = false;
 }
 
 if(tmrRefillBullets &gt; 0){
@@ -169,7 +216,7 @@ if(tmrRefillBullets &gt; 0){
 }
 
 if (abs(device_get_tilt_x()) &gt; 1.5 || abs(device_get_tilt_y())&gt;1.5 || abs(device_get_tilt_z())&gt;1.5) {
-    event_perform(ev_keypress,vk_space);
+    //event_perform(ev_keypress,vk_space);
 }
 
 if(jumping){
@@ -232,6 +279,7 @@ if(jumping){
             <kind>1</kind>
             <string>if(x&lt;room_width-230){
     x+=10;
+    image_angle = -10;
 }
 </string>
           </argument>
@@ -257,7 +305,31 @@ if(jumping){
             <kind>1</kind>
             <string>if(x&gt;230){
     x-=10;
+    image_angle = 10;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_angle = 0;
 </string>
           </argument>
         </arguments>
@@ -282,7 +354,7 @@ if(jumping){
             <kind>1</kind>
             <string>var scale = 1-(y-initialY)/500;
 draw_set_alpha(0.5);
-draw_ellipse(x-50*scale,initialY-20*scale,x+50*scale,initialY+20*scale,false);
+draw_ellipse(x-30*scale,initialY-15*scale,x+30*scale,initialY+15*scale,false);
 draw_set_alpha(1);
 draw_self();
 
