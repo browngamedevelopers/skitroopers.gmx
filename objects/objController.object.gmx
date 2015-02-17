@@ -113,11 +113,15 @@ repeat (1+score/2000) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(objPlayer)){
+            <string>draw_set_halign(fa_left);
+if(instance_exists(objPlayer)){
+    draw_text(view_wview[0]+50,10,"Health:" + string(objPlayer.hp));
 //draw_text(0,0,objPlayer.bulletCount);
 }
-draw_set_halign(fa_left);
+
 draw_text(10,10,"Score:" + string(score));
+
+draw_text(10,100,instance_count);
 </string>
           </argument>
         </arguments>

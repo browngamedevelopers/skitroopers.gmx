@@ -37,7 +37,9 @@ depth = -y;
 tmrRefillBullets  = -1;
 jumpSpace = virtual_key_add(0,0,view_wview[0]/2,view_hview[0],vk_space);
 mousePressed = false;
+hp = 100;
 
+scoreCounter = room_speed;
 </string>
           </argument>
         </arguments>
@@ -154,7 +156,12 @@ fired = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>score+=1;
+            <string>if(scoreCounter == 0){
+    scoreCounter = room_speed;
+    score+=1;
+}else{
+    scoreCounter -- ;
+}
 //image_angle = 0;
 //if(x&gt;230){
     //x -= device_get_tilt_y()*15;

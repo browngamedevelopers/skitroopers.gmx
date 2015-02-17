@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-scaleFactor = 1/2000;
+scaleFactor = 1/(2000+irandom(200)-irandom(200));
 
 if(irandom(1)){
     sprite_index = sprLog;

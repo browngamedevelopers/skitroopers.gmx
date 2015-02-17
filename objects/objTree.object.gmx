@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-scaleFactor = 1/700;
+scaleFactor = 1/(700+irandom(200)-irandom(300));
 
 if(irandom(1)){
     sprite_index = sprTree;
