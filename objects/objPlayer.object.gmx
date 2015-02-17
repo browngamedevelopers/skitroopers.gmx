@@ -131,6 +131,7 @@ fired = false;
           <argument>
             <kind>1</kind>
             <string>image_angle = 0;
+
 </string>
           </argument>
         </arguments>
@@ -163,10 +164,10 @@ if(x&gt;230 &amp;&amp; x&lt;room_width-230){
     x += device_get_tilt_y()*15;
     
     if(device_get_tilt_y()&lt;0){
-        image_angle = -10;
+        image_angle = 10;
     }
     if(device_get_tilt_y()&gt;0){
-        image_angle = 10;
+        image_angle = -10;
     }
     //x+=2;
 }
@@ -176,14 +177,15 @@ if(x&lt;=230){
    if(x&gt;=room_width-230){
         x = room_width-231;
    }
-sprite_index = sprPlayerCenter;
+
     if(mouse_x&lt;x-100){
-        sprite_index = sprPlayerLeft;
+        //sprite_index = sprPlayerLeft;
     }
     if(mouse_x&gt;x+100){
-        sprite_index = sprPlayerRight;
+        //sprite_index = sprPlayerRight;
     }
-    
+
+if(y-sprite_width+20&gt;global.horizonHeight){
 if (mouse_check_button(mb_left) &amp;&amp; !fired) {
     if(!mousePressed){
         touchX = mouse_x;
@@ -191,15 +193,20 @@ if (mouse_check_button(mb_left) &amp;&amp; !fired) {
     }
     mousePressed = true;
     var bullet = instance_create(x,y-sprite_width+20,objPlayerBullet);
-    if(os_type == os_android || os_type == os_ios){
-        bullet.direction = 90 + (touchX-mouse_y)*0.15;
-    }else{
-        bullet.direction = 90 + (touchX-mouse_x)*0.15;
+
+    bullet.direction = 90 + (touchX-mouse_x)*0.25;
+    sprite_index = sprPlayerCenter;
+    if(touchX-mouse_x&gt;100){
+        sprite_index = sprPlayerLeft;
+    }
+    if(touchX-mouse_x&lt;-100){
+        sprite_index = sprPlayerRight;
     }
     bulletCount--;
     fired = true;
     alarm[0] = 10;
     tmrRefillBullets = room_speed;
+}
 }
 if(mouse_check_button_released(mb_left)){
     mousePressed = false;
