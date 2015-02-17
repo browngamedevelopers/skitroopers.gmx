@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10000000</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,21 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.horizonHeight = 324;
-
-global.shootHeight = 400;
-
-global.roomSpeed = room_speed;
-global.playerY = 800;
-
-
-instance_create(room_width/2,room_height/2+300,objPlayer);
+            <string>sound_loop(sndHappyFast);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="6" enumb="50">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -56,47 +48,13 @@ instance_create(room_width/2,room_height/2+300,objPlayer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Change this tree creation algo
-/*repeat (1+score/400) {
-    if (irandom(9) == 0) {
-        instance_create(view_xview[0]+random(view_wview[0]), global.horizonHeight, objBunker)
-    }
-}*/
-//test_gen();
-
-//instance_create(view_xview[0]+random(view_wview[0]), global.horizonHeight, objTree)
-
-
-gen_tree_wall();
-var viewBounds = 230;//250;
-repeat (1+score/400) {
-    if (irandom(9) == 0) {
-        instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog)
-    }
-}
-repeat (1+score/400) {
-    if (irandom(9) == 0) {
-        instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objRock)
-    }
-}
-repeat (1+score/1600) {
-    if (irandom(9) == 0) {
-        instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objSoldier)
-    }
-}
-
-repeat (1+score/2000) {
-    if (irandom(9) == 0) {
-        instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objBunker)
-    }
-}
-//effect_create_above(ef_snow, 0, 0, 0, c_white);
+            <string>room_goto(rmMain);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -113,11 +71,15 @@ repeat (1+score/2000) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(objPlayer)){
-//draw_text(0,0,objPlayer.bulletCount);
-}
+            <string>draw_set_font(fntTitles);
+draw_set_halign(fa_middle);
+draw_text(room_width/2,60,"Ski Troopers");
+draw_set_font(fntMenu);
+draw_set_halign(fa_center);
+draw_text(room_width/2,room_height/2,"Tap To Play");
 draw_set_halign(fa_left);
-draw_text(10,10,"Score:" + string(score));
+draw_set_font(fntTapToPlay);
+draw_text(10,room_height-60,"Best Score: " + string(highscore_value(1)));
 </string>
           </argument>
         </arguments>

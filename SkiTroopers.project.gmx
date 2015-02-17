@@ -33,6 +33,7 @@
     <sprite>sprites\sprRock3</sprite>
     <sprite>sprites\sprStatus</sprite>
     <sprite>sprites\sprComplete</sprite>
+    <sprite>sprites\sprite25</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bckMountains</background>
@@ -46,6 +47,11 @@
     <script>scripts\test_gen.gml</script>
     <script>scripts\script4.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fntTitles</font>
+    <font>fonts\fntMenu</font>
+    <font>fonts\fntTapToPlay</font>
+  </fonts>
   <objects name="objects">
     <object>objects\objController</object>
     <object>objects\objNotjumpable</object>
@@ -64,8 +70,10 @@
     <object>objects\objExplosion</object>
     <object>objects\objRock</object>
     <object>objects\objSnow</object>
+    <object>objects\objMenu</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rmMenu</room>
     <room>rooms\rmMain</room>
   </rooms>
   <help>

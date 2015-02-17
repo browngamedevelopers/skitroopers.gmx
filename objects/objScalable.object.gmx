@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>scaleFactor = 1/100;
+flipImage = 1;
+if(irandom(1)){
+    flipImage = -1;
+}
 </string>
           </argument>
         </arguments>
@@ -87,9 +91,33 @@
             <string>if(y&gt;room_height+500){
     instance_destroy();
 }
-image_xscale = (y-ystart) * scaleFactor;
-image_yscale = (y-ystart) * scaleFactor;
+image_xscale = (y-280) * scaleFactor;
+image_yscale = (y-280) * scaleFactor;
 depth = -y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+draw_sprite_ext(sprite_index,-1,x,y,image_xscale*flipImage,image_yscale,0,c_white,1);
 </string>
           </argument>
         </arguments>

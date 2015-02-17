@@ -5,9 +5,8 @@ tree_bound = 820
 rw = room_width-(tree_bound-450)
 y_gen = global.horizonHeight
 
-repeat(1) {
-    lr = irandom(1)
-    sign1 = (lr*2-1) 
+if(irandom(1)){
+
     //instance_create(room_width*lr -(sign1*random(tree_bound)), y_gen, objTree)
     //instance_create(tree_bound+irandom(100)-irandom(100), y_gen, objTree)
     //instance_create(room_width-tree_bound+irandom(100)-irandom(100), y_gen, objTree)

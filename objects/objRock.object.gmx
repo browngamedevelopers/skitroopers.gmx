@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scaleFactor = 1/800;
+            <string>event_inherited();
+scaleFactor = 1/800;
 switch(irandom(2)){
     case 0:
     sprite_index = sprRock;
