@@ -69,24 +69,24 @@ instance_create(room_width/2,room_height/2+300,objPlayer);
 
 gen_tree_wall();
 var viewBounds = 230;//250;
-repeat (1+score/400) {
-    if (irandom(9) == 0) {
+repeat (1+score/100) {
+    if (irandom(18) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog)
     }
 }
-repeat (1+score/400) {
-    if (irandom(9) == 0) {
+repeat (score/30) {
+    if (irandom(36) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objRock)
     }
 }
-repeat (1+score/1600) {
-    if (irandom(9) == 0) {
+repeat (score/60) {
+    if (irandom(48) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objSoldier)
     }
 }
 
-repeat (1+score/2000) {
-    if (irandom(9) == 0) {
+repeat (score/90) {
+    if (irandom(96) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objBunker)
     }
 }
