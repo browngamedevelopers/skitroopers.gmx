@@ -25,15 +25,92 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.horizonHeight = 324;
+            <string>display_set_gui_size(1280, 720);
+global.horizonHeight = 324;
 
 global.shootHeight = 400;
 
 global.roomSpeed = room_speed;
+global.notPause = true;
 global.playerY = 800;
 
 
 instance_create(room_width/2,room_height/2+300,objPlayer);
+alarm[0] = room_speed*30 + irandom(room_speed*15);
+alarm[1] = room_speed*60 + irandom(room_speed*30);
+alarm[2] = room_speed*75 + irandom(room_speed*45);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objYeti)
+alarm[2] = room_speed*75 + irandom(room_speed*45);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog4)
+alarm[1] = room_speed*60 + irandom(room_speed*30);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog3)
+alarm[0] = room_speed*30 + irandom(room_speed*15);
 </string>
           </argument>
         </arguments>
@@ -68,27 +145,33 @@ instance_create(room_width/2,room_height/2+300,objPlayer);
 
 
 gen_tree_wall();
-var viewBounds = 230;//250;
+viewBounds = 230;//250;
 repeat (1+score/100) {
     if (irandom(18) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog)
     }
 }
-repeat (score/30) {
+repeat (score/45) {
     if (irandom(36) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objRock)
     }
 }
-repeat (score/60) {
+repeat (score/90) {
     if (irandom(48) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objSoldier)
     }
 }
 
-repeat (score/90) {
+repeat (score/120) {
     if (irandom(96) == 0) {
         instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objBunker)
     }
+}
+if(score mod 200 = 0){
+    //instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog3)
+}
+if(score mod 300 = 0){
+    //instance_create(view_xview[0]+view_wview[0]/2-irandom(viewBounds)+irandom(viewBounds), global.horizonHeight, objLog3)
 }
 //effect_create_above(ef_snow, 0, 0, 0, c_white);
 </string>
@@ -113,15 +196,17 @@ repeat (score/90) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_left);
+            <string>draw_set_font(fntTapToPlay);
+draw_set_halign(fa_right);
 if(instance_exists(objPlayer)){
-    draw_text(view_wview[0]+50,10,"Health:" + string(objPlayer.hp));
+    draw_text(view_wview[0]-10,10,"Health:" + string(objPlayer.hp));
 //draw_text(0,0,objPlayer.bulletCount);
-}
 
+}
+draw_set_halign(fa_left);
 draw_text(10,10,"Score:" + string(score));
 
-draw_text(10,100,instance_count);
+//draw_text(10,100,instance_count);
 </string>
           </argument>
         </arguments>

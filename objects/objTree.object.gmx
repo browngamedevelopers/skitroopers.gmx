@@ -80,7 +80,11 @@ if(irandom(1)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//instance_create(x,y,objExplosion);
+            <string>if(checkDepth(id,other.id)){
+    if(!other.jumping){
+        instance_create(0,0,objGameOver);
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -83,8 +83,10 @@ if(y &gt; objPlayer.y + 10){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//show_message("hit!");
-instance_destroy();
+            <string>//if(checkDepth(id,other.id)){
+    instance_destroy();
+    other.hp -=5;
+//}
 </string>
           </argument>
         </arguments>
